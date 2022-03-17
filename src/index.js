@@ -1,5 +1,5 @@
 import app from "./app.js";
-import './database/connection.js';
+//mport './database/connection.js';
 //app = require('./app')
 
 app.listen(app.get('port'))

@@ -11,11 +11,11 @@ const dbSettings = {
     }
 }
 
-async function getConnection(){
+export async function getConnection(){
     try {
         const pool = await sql.connect(dbSettings);
-        const result = await pool.query("SELECT * from dbo.empleados")
-        console.log(result);
+        //const result = await pool.query("SELECT * from dbo.empleados")
+        //console.log(result);
         return pool;
     } catch (error) {
         console.log(error);
@@ -23,4 +23,4 @@ async function getConnection(){
 
 }
 
-getConnection();
+//getConnection();
