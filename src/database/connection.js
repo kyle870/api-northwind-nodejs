@@ -1,9 +1,9 @@
 import sql from "mssql";
 
 const dbSettings = {
-    user: "sa",
-    password: "12345678",
-    server: "192.168.15.170", //ip de la ma
+    user: "fvirtual",
+    password: "Ufv>2022",
+    server: "192.168.1.32", //ip de la PC en uso
     database: "NominaUCN",
     options:{
         encrypt: true,
@@ -14,8 +14,8 @@ const dbSettings = {
 async function getConnection(){
     try {
         const pool = await sql.connect(dbSettings);
-        //const result = await pool.query("SELECT distinct top 10 CIF, Estado from Docentes")
-        //console.log(result);
+        const result = await pool.query("SELECT * from dbo.empleados")
+        console.log(result);
         return pool;
     } catch (error) {
         console.log(error);
