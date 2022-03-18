@@ -1,4 +1,4 @@
-import { getConnection } from "../database/connection.js"
+import { getConnection, sql } from "../database/connection.js"
 
 export const getProducts = async (req, res) => {
     const pool =  await getConnection(); //investigar que son los pool
@@ -17,11 +17,20 @@ export const getProducts = async (req, res) => {
  * }
 */
 export const createNewProduct = async (req, res) => {
-    const {nombres, apellidos} = req.body;
-
+    let {nombres, apellidos} = req.body;
+    
     if (nombres == null || apellidos == null) {
-        return res.status(400).json({msg: 'Falta un campo'})
+        return res.status(400).json({msg: 'Falta un campo'}) //400 es estatus de bad request
     }
-    console.log(nombres, apellidos);
-    res.json()
+
+    const pool = await getConnection();
+
+    //definir consulta para insertar
+    await pool.request()
+    .input("nombres",sql.VarChar, 'Carlos')
+    .input("apellidos",sql.VarChar, "Juanga")
+    .query('Insert into dbo.empleados (nombres, apellidos) values(@nombres, @apellidos)');
+
+    //console.log(`Nombres: ${nombres}, Apellidos: ${apellidos}`);
+    res.json("Nuevo Empleado creado")
 }
