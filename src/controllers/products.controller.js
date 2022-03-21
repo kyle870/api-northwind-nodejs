@@ -12,13 +12,7 @@ export const getProducts = async (req, res) => {
     }
 };
 
-//realizar pruebas con postman para la API
-/** 
- * {
- *  "nombres":"Kyle",
- *  "apellidos":"87" (opcional)
- * }
-*/
+
 export const createNewProduct = async (req, res) => {
     let {nombres, apellidos} = req.body;
     
