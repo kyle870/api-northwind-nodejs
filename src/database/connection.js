@@ -1,9 +1,9 @@
 import sql from "mssql";
 
 const dbSettings = {
-    user: "fvirtual",
-    password: "Ufv>2022",
-    server: "192.168.1.32", //ip de la PC en uso
+    user: "sa",
+    password: "12345678",
+    server: "DESKTOP-6NC0OMV", //ip de la PC en uso
     database: "NominaUCN",
     options:{
         encrypt: true,

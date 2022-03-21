@@ -4,6 +4,11 @@ import productsRoutes from "./routes/products.routes.js"
 
 const app = express();
 
+//responder con hola mundo si se hace un get al home
+app.get('/', function (req, res) {
+    res.send("<h1>Home Page</h1>");
+})
+
 //settings
 app.set('port', config.port);
 
